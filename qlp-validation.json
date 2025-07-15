@@ -1,0 +1,330 @@
+{
+  "id": "3761cd3c-178a-46f4-9ca0-90cfd4686604",
+  "execution_id": "ae3de406-b6cd-4a81-b27b-8b40669323e2",
+  "overall_status": "failed",
+  "checks": [
+    {
+      "name": "syntax_validator",
+      "type": "static_analysis",
+      "status": "warning",
+      "message": "Indentation issues and missing import statement for the fibonacci function in the test code.",
+      "details": {
+        "issues": [
+          "The 'fibonacci' function definition should have consistent indentation for its body.",
+          "The test code does not import the 'fibonacci' function which will cause a NameError during runtime."
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Ensure that the body of the 'fibonacci' function is properly indented to reflect that it is within the function scope.",
+          "Add an import statement at the beginning of the test code to import the 'fibonacci' function if it is defined in a separate module, or ensure the function is defined in the same file."
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "style_validator",
+      "type": "static_analysis",
+      "status": "warning",
+      "message": "The code has style and formatting issues that affect readability and maintainability.",
+      "details": {
+        "issues": [
+          "Inconsistent indentation: The function 'fibonacci' uses inconsistent indentation which can lead to errors and makes the code hard to read.",
+          "Lack of docstrings: The function 'fibonacci' and the test class 'TestFibonacci' are missing docstrings, which are important for documentation and maintainability.",
+          "Recursive function without termination check: The recursive implementation of the Fibonacci function does not have a mechanism to prevent deep recursion, which can lead to maximum recursion depth exceeded errors for large inputs."
+        ],
+        "confidence": 0.8,
+        "suggestions": [
+          "Use consistent indentation, preferably 4 spaces per indentation level, as per PEP 8 style guide.",
+          "Add docstrings to the 'fibonacci' function and 'TestFibonacci' class to improve documentation and code readability.",
+          "Consider implementing a termination condition or an iterative approach to handle large input values more efficiently and avoid potential stack overflow."
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "security_validator",
+      "type": "security",
+      "status": "warning",
+      "message": "Recursive Fibonacci implementation may lead to performance issues",
+      "details": {
+        "issues": [
+          "Recursive function without memoization leads to exponential time complexity",
+          "Potential for stack overflow with large input values due to deep recursion"
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Implement memoization to store intermediate results and reduce time complexity",
+          "Consider using an iterative approach or dynamic programming to avoid deep recursion and improve performance",
+          "Add input validation to ensure that the function is called with non-negative integers"
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "type_validator",
+      "type": "static_analysis",
+      "status": "warning",
+      "message": "Recursive Fibonacci function lacks type hints and may have performance issues due to excessive recursive calls.",
+      "details": {
+        "issues": [
+          "No type hints provided for function parameters or return type.",
+          "Recursive approach leads to a high number of redundant calculations, which can significantly slow down the function for larger values of n."
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Add type hints to the function signature to improve type safety and clarity: def fibonacci(n: int) -> int.",
+          "Consider implementing memoization or using an iterative approach to optimize the calculation of Fibonacci numbers and reduce the time complexity."
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "logic_validator",
+      "type": "logic_analysis",
+      "status": "warning",
+      "message": "Recursive Fibonacci implementation is correct but inefficient for large inputs.",
+      "details": {
+        "issues": [
+          "Exponential time complexity due to redundant calculations in the recursive approach."
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider using a dynamic programming approach or memoization to optimize the function.",
+          "Implement an iterative version of the Fibonacci sequence to achieve linear time complexity."
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "runtime_validator",
+      "type": "runtime",
+      "status": "warning",
+      "message": "Recursive Fibonacci implementation may lead to performance issues for large inputs",
+      "details": {
+        "issues": [
+          "Exponential time complexity due to redundant calculations",
+          "Potential for stack overflow with very large input values due to deep recursion"
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider using a dynamic programming approach or memoization to optimize the recursive Fibonacci function",
+          "Implement iterative version of Fibonacci to avoid deep recursion and improve performance"
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "syntax_validator",
+      "type": "static_analysis",
+      "status": "passed",
+      "message": "The Python code is syntactically correct and well-structured.",
+      "details": {
+        "issues": [],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider adding type hints for the function parameters and return types to enhance code readability and maintainability.",
+          "Include a base case check for negative inputs in the fibonacci function to prevent unintended behavior."
+        ]
+      },
+      "severity": "info"
+    },
+    {
+      "name": "style_validator",
+      "type": "static_analysis",
+      "status": "passed",
+      "message": "The code is well-structured and follows Python best practices.",
+      "details": {
+        "issues": [],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider adding type hints to the function definition for better clarity and type checking. For example, `def fibonacci(n: int) -> int:`.",
+          "Include a brief docstring for the `fibonacci` function to explain what it does, its parameters, and its return type.",
+          "It might be beneficial to add more comprehensive tests that also check for edge cases, such as negative numbers or non-integer inputs, to ensure the function handles these gracefully."
+        ]
+      },
+      "severity": "info"
+    },
+    {
+      "name": "security_validator",
+      "type": "security",
+      "status": "passed",
+      "message": "No security vulnerabilities or unsafe patterns detected.",
+      "details": {
+        "issues": [],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider adding input validation to ensure that the function only receives non-negative integers. This can prevent unintended behavior or errors if the function is used in a broader context.",
+          "Include a base case for negative inputs to handle them gracefully, either by raising an exception or returning a specific value indicating invalid input."
+        ]
+      },
+      "severity": "info"
+    },
+    {
+      "name": "type_validator",
+      "type": "static_analysis",
+      "status": "passed",
+      "message": "The code is well-structured and uses memoization effectively for the Fibonacci sequence calculation.",
+      "details": {
+        "issues": [],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider adding type hints to the function definition to improve type safety and clarity. For example, use 'def fibonacci(n: int) -> int:' to specify that the input and output are integers.",
+          "Include error handling or input validation to ensure that the function behaves correctly when given non-integer or negative inputs."
+        ]
+      },
+      "severity": "info"
+    },
+    {
+      "name": "logic_validator",
+      "type": "logic_analysis",
+      "status": "passed",
+      "message": "The Fibonacci function is correctly implemented with memoization to optimize recursive calls.",
+      "details": {
+        "issues": [],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider adding a check for negative input values to the fibonacci function, as Fibonacci numbers are not defined for negative integers.",
+          "Include more comprehensive tests to cover edge cases, such as negative numbers or extremely large numbers, to ensure the function behaves as expected in all scenarios."
+        ]
+      },
+      "severity": "info"
+    },
+    {
+      "name": "runtime_validator",
+      "type": "runtime",
+      "status": "passed",
+      "message": "The Fibonacci function is implemented correctly with memoization and passes basic tests.",
+      "details": {
+        "issues": [],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider adding a type check to ensure that the input 'n' is a non-negative integer. This will prevent the function from being called with invalid types, which could lead to unexpected behavior or errors.",
+          "Add more comprehensive tests to cover edge cases, such as very large numbers, to ensure the function handles them efficiently without running into performance issues.",
+          "Document the behavior of the function when called with non-integer or negative values, as the current implementation assumes 'n' is a non-negative integer."
+        ]
+      },
+      "severity": "info"
+    },
+    {
+      "name": "execution_status",
+      "type": "basic",
+      "status": "failed",
+      "message": "Execution failed: None",
+      "details": null,
+      "severity": "info"
+    },
+    {
+      "name": "syntax_validator",
+      "type": "static_analysis",
+      "status": "warning",
+      "message": "The function is syntactically correct but inefficient for large inputs due to its recursive nature without memoization.",
+      "details": {
+        "issues": [
+          "Inefficient recursion for large 'n' values."
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider using memoization to store previously computed values of the Fibonacci sequence.",
+          "Alternatively, use an iterative approach to improve efficiency."
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "style_validator",
+      "type": "static_analysis",
+      "status": "warning",
+      "message": "The code is simple and readable but inefficient for larger inputs due to lack of memoization.",
+      "details": {
+        "issues": [
+          "Recursive function without memoization leads to exponential time complexity."
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider using memoization to store previously computed values of the Fibonacci sequence.",
+          "Alternatively, use an iterative approach to improve efficiency."
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "security_validator",
+      "type": "security",
+      "status": "warning",
+      "message": "Recursive function without termination condition for large inputs",
+      "details": {
+        "issues": [
+          "Recursive depth issue for large 'n'",
+          "Potential stack overflow for very large 'n'"
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider using an iterative approach or memoization to optimize performance and prevent stack overflow.",
+          "Implement input validation to restrict overly large values of 'n' that could cause runtime issues."
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "type_validator",
+      "type": "static_analysis",
+      "status": "warning",
+      "message": "The function lacks type annotations and may have performance issues with large inputs.",
+      "details": {
+        "issues": [
+          "Missing type annotations for function parameters and return type.",
+          "Recursive calls without memoization can lead to exponential time complexity."
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Add type hints to the function to ensure type safety. For example: def fibonacci(n: int) -> int:",
+          "Implement memoization or use an iterative approach to improve performance."
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "logic_validator",
+      "type": "logic_analysis",
+      "status": "warning",
+      "message": "The function correctly computes Fibonacci numbers but is inefficient for large inputs.",
+      "details": {
+        "issues": [
+          "Exponential time complexity due to redundant calculations."
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider using dynamic programming or memoization to optimize the function.",
+          "Implement an iterative solution to reduce time complexity to linear."
+        ]
+      },
+      "severity": "warning"
+    },
+    {
+      "name": "runtime_validator",
+      "type": "runtime",
+      "status": "warning",
+      "message": "The function uses a recursive approach which can lead to performance issues for large inputs.",
+      "details": {
+        "issues": [
+          "Recursive calls without memoization can lead to exponential time complexity.",
+          "Potential for maximum recursion depth exceeded error for large values of n."
+        ],
+        "confidence": 0.9,
+        "suggestions": [
+          "Consider using an iterative approach or memoization to improve efficiency.",
+          "Implement a bottom-up dynamic programming solution to avoid deep recursion."
+        ]
+      },
+      "severity": "warning"
+    }
+  ],
+  "confidence_score": 0.25,
+  "requires_human_review": true,
+  "metadata": {
+    "task_count": 6,
+    "validation_count": 4,
+    "combined_from_tasks": true
+  },
+  "created_at": "2025-07-15T19:56:34.031424"
+}
